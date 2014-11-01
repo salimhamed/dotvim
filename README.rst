@@ -1,4 +1,5 @@
-Installation:
+Installation
+============
 
     git clone --recursive --recurse-submodules https://github.com/salimhamed/dotvim.git ~/.vim
 

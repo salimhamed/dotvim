@@ -1,12 +1,16 @@
 Installation
 ============
 
+1. Clone repository and all submodules into .vim folder:
+
     git clone --recursive --recurse-submodules https://github.com/salimhamed/dotvim.git ~/.vim
 
-Create symlinks:
+2. Create symlinks:
 
-    Unix:
+Unix:
+
     ln -s ~/.vim/vimrc ~/.vimrc
 
-    Windows:
+Windows:
+
     mklink /H C:\Users\<user_profile>\_vimrc C:\Users\<user_profile>\vimfiles\vimrc

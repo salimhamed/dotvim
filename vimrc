@@ -1,4 +1,30 @@
-"turn error beeps
+"==============================================================================
+"GENERAL NOTES
+"==============================================================================
+"Git hub Sour
+
+"Vim Packages Installed
+"using vim-airline
+"using jedi-vim
+"using vim-flake8
+"using ctrip
+"using $im-better-whitespace
+
+"Virtualenv
+"https://github.com/jmcantrell/vim-virtualenv.git
+
+"Python folding
+"mkdir -p ~/.vim/ftplugin
+"wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
+
+"==============================================================================
+"GENERAL SETTINGS
+"==============================================================================
+
+"enable pathogen (a plug-in that allows you to manage runtimepath)
+execute pathogen#infect()
+
+"turn error beeps off
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
@@ -29,10 +55,6 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-"easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
-
 "easier moving of code blocks
 vnoremap < <gv
 vnoremap > >gv
@@ -55,7 +77,7 @@ set shiftwidth=4 "number of spaces to use for each step of (auto)indent
 set softtabstop=4 "number of spaces in tab when editing
 set expandtab "tabs are spaces
 set shiftround "round to nearest tab width when moving blocks of text
-set smartindent "automattically indent when starting a new line
+set smartindent "automatically indent when starting a new line
 
 "ui config
 set number "show line numbers
@@ -102,20 +124,48 @@ set guifont=Menlo:h13
 "fold settings
 set foldnestmax=2
 
-"enable pathogen (a plug-in that allows you to manage runtimepath)
-execute pathogen#infect()
-
 "Python folding
 set nofoldenable
 
+
 "==============================================================================
-"GENERAL NOTES
+"VIM WINDOWS SETTINGS
 "==============================================================================
-"using vim-airline; installed in ~/.vim/bundle/vim-airline
-"using jedi-vim; installed in .vim/bundle/jedi-vim
-"using vim-flake8; installed in .vim/bundle/jedi-vim
-"using ctrip; installed in .vim/bundle/ctrlp.vim
-"using vim-better-whitespace; installed in .vim/bundle/vim-better-whitespace
-"using python_editing (for folding); installed in .vim/ftplugin/python_editing.vim
-"more info at http://www.vim.org/scripts/download_script.php?src_id=5492
-"using vim-fugitive; https://github.com/tpope/vim-fugitive
+
+if has("win32")
+
+    "Better font for Windows
+    set guifont=Consolas:h10.5:cANSI
+
+    "function for diff on windows
+    set diffexpr=MyDiff()
+    function MyDiff()
+    let opt = '-a --binary '
+    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+    let arg1 = v:fname_in
+    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+    let arg2 = v:fname_new
+    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+    let arg3 = v:fname_out
+    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+    if $VIMRUNTIME =~ ' '
+        if &sh =~ '\<cmd'
+        if empty(&shellxquote)
+            let l:shxq_sav = ''
+            set shellxquote&
+        endif
+        let cmd = '"' . $VIMRUNTIME . '\diff"'
+        else
+        let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+        endif
+    else
+        let cmd = $VIMRUNTIME . '\diff'
+    endif
+    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+    if exists('l:shxq_sav')
+        let &shellxquote=l:shxq_sav
+    endif
+    endfunction
+
+endif

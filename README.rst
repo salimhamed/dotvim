@@ -7,12 +7,10 @@ Installation
 
 #) Create symlinks:
 
-Unix:
------
+    #) Unix:
 
-    ln -s ~/.vim/vimrc ~/.vimrc
+        ln -s ~/.vim/vimrc ~/.vimrc
 
-Windows:
---------
+    #) Windows:
 
-    mklink /H C:\Users\<user_profile>\_vimrc C:\Users\<user_profile>\vimfiles\vimrc
+        mklink /H C:\Users\<user_profile>\_vimrc C:\Users\<user_profile>\vimfiles\vimrc

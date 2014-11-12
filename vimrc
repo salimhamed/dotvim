@@ -1,21 +1,16 @@
 "==============================================================================
 "GENERAL NOTES
 "==============================================================================
-"Git hub Sour
 
 "Vim Packages Installed
 "using vim-airline
 "using jedi-vim
 "using vim-flake8
 "using ctrip
-"using $im-better-whitespace
+"using vim-better-whitespace
 
 "Virtualenv
 "https://github.com/jmcantrell/vim-virtualenv.git
-
-"Python folding
-"mkdir -p ~/.vim/ftplugin
-"wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 
 "==============================================================================
 "GENERAL SETTINGS
@@ -120,13 +115,6 @@ set smartcase "override the ignore case setting when searching with uppercase
 
 "default font settings"
 set guifont=Menlo:h13
-
-"fold settings
-set foldnestmax=2
-
-"Python folding
-set nofoldenable
-
 
 "==============================================================================
 "VIM WINDOWS SETTINGS

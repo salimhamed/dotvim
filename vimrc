@@ -18,6 +18,7 @@
 
 "enable pathogen (a plug-in that allows you to manage runtimepath)
 execute pathogen#infect()
+Helptags
 
 "turn error beeps off
 set noerrorbells visualbell t_vb=
@@ -39,10 +40,10 @@ noremap <C-n> :nohl<CR>
 vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
-"quicksave command
-noremap <C-Z> :update<CR>
-vnoremap <C-Z> <C-C>:update<CR>
-inoremap <C-Z> <C-O>:update<CR>
+"quicksave command and reapply syntax formatting
+noremap <C-Z> :syn sync fromstart<CR>:update<CR>
+vnoremap <C-Z> :syn sync fromstart<CR><C-C>:update<CR>
+inoremap <C-Z> :syn sync fromstart<CR><C-O>:update<CR>
 
 "bind Ctrl+<movement> keys to move around the windows
 map <c-j> <c-w>j
@@ -65,6 +66,9 @@ let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
+
+"folding for python files
+autocmd FileType python setlocal foldmethod=indent foldnestmax=2
 
 "spaces and tabs
 set tabstop=4 "number of visual spaces per tab

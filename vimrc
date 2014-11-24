@@ -42,8 +42,8 @@ inoremap <C-n> :nohl<CR>
 
 "quicksave command and reapply syntax formatting
 noremap <C-Z> :syn sync fromstart<CR>:update<CR>
-vnoremap <C-Z> :syn sync fromstart<CR><C-C>:update<CR>
-inoremap <C-Z> :syn sync fromstart<CR><C-O>:update<CR>
+vnoremap <C-Z> <C-C>:syn sync fromstart<CR><C-C>:update<CR>
+inoremap <C-Z> <C-O>:syn sync fromstart<CR><C-O>:update<CR>
 
 "bind Ctrl+<movement> keys to move around the windows
 map <c-j> <c-w>j

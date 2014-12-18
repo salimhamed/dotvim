@@ -42,8 +42,13 @@ inoremap <C-n> :nohl<CR>
 
 "quicksave command and reapply syntax formatting
 noremap <C-Z> :syn sync fromstart<CR>:update<CR>
+noremap <C-S> :syn sync fromstart<CR>:update<CR>
+
 vnoremap <C-Z> <C-C>:syn sync fromstart<CR><C-C>:update<CR>
+vnoremap <C-S> <C-C>:syn sync fromstart<CR><C-C>:update<CR>
+
 inoremap <C-Z> <C-O>:syn sync fromstart<CR><C-O>:update<CR>
+inoremap <C-S> <C-O>:syn sync fromstart<CR><C-O>:update<CR>
 
 "bind Ctrl+<movement> keys to move around the windows
 map <c-j> <c-w>j
@@ -127,7 +132,7 @@ set guifont=Menlo:h13
 if has("win32")
 
     "Better font for Windows
-    set guifont=Consolas:h10.5:cANSI
+    set guifont=Consolas:h10:cANSI
 
     "function for diff on windows
     set diffexpr=MyDiff()

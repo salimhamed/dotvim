@@ -13,4 +13,4 @@ Installation
 
     #) Windows:
 
-        mklink "C:\Users\<user_profile>\_vimrc" "C:\Users\<user_profile>\vimfiles\vimrc"
+        mklink "C:\\Users\\<user_profile>\\_vimrc" "C:\\Users\\<user_profile>\\vimfiles\\vimrc"

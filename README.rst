@@ -17,4 +17,5 @@ Installation
 
 More Reading
 ============
-[Vimcasts - Synchronizing Plugins with Git](www.vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen)
+[Vimcasts Synchronizing Plugins with Git](www.vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen)
+[Visit GitHub!](www.github.com)

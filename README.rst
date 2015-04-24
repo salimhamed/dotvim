@@ -14,3 +14,7 @@ Installation
     #) Windows:
 
         mklink "C:\\Users\\<user_profile>\\_vimrc" "C:\\Users\\<user_profile>\\vimfiles\\vimrc"
+
+More Reading
+============
+[Vimcasts - Synchronizing Plugins with Git](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/).

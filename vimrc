@@ -66,6 +66,16 @@ vnoremap <Leader>s :sort<CR>
 "map white space function
 map <Leader>ws :StripWhitespace<CR>
 
+" Use ctrl+^ for capslock
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+for c in range(char2nr('A'), char2nr('Z'))
+  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+
+" Kill the capslock when leaving insert mode.
+autocmd InsertLeave * set iminsert=0
+
 "colors
 let g:solarized_termcolors=256
 syntax enable
@@ -122,13 +132,12 @@ set incsearch "search as characters are entered
 set ignorecase "ignore case on search
 set smartcase "override the ignore case setting when searching with uppercase
 
-"default font settings"
-set guifont=Menlo:h13
 
 "==============================================================================
-"VIM WINDOWS SETTINGS
+"VIM SYSTEM SPECIFIC SETTINGS
 "==============================================================================
 
+"Windows specific settings
 if has("win32")
 
     "Better font for Windows
@@ -164,5 +173,10 @@ if has("win32")
         let &shellxquote=l:shxq_sav
     endif
     endfunction
+
+else
+
+    "Better font for Mac/Linux
+    set guifont=Menlo:h13
 
 endif

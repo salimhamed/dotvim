@@ -111,6 +111,9 @@ set noshowmode "Hide the default mode text (e.g. -- INSERT -- below the statusli
 "allow hidden buffers for switching between buffers without saving
 set hidden
 
+"turn of word wrapping
+set nowrap
+
 "vim-airline settings
 "enable virtualenv integration with vim-airline
 "https://github.com/jmcantrell/vim-virtualenv.git
@@ -134,7 +137,25 @@ set smartcase "override the ignore case setting when searching with uppercase
 
 
 "==============================================================================
-"VIM SYSTEM SPECIFIC SETTINGS
+"ADD THE VIRTUALENV'S SITE-PACKAGES TO VIM PATH
+"==============================================================================
+
+if has('python')
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+endif
+
+
+"==============================================================================
+"VIM OS SPECIFIC SETTINGS
 "==============================================================================
 
 "Windows specific settings

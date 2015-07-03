@@ -2,27 +2,33 @@
 "GENERAL NOTES
 "==============================================================================
 
-"Vim Packages Installed
-"using vim-airline
-"using jedi-vim
-"using vim-flake8
-"using ctrip
-"using vim-better-whitespace
+"PACKAGES INSTALLED
+" ctrlp.vim/
+" jedi-vim/
+" nerdtree/
+" vim-airline/
+" vim-better-whitespace/
+" vim-flake8/
+" vim-fugitive/
+" vim-ruby/
+" vim-virtualenv/
 
-"Virtualenv
-"https://github.com/jmcantrell/vim-virtualenv.git
 
 "==============================================================================
-"GENERAL SETTINGS
+"INSTALL PATHOGEN
 "==============================================================================
 
 "enable pathogen (a plug-in that allows you to manage runtimepath)
 execute pathogen#infect()
 Helptags
 
-"turn error beeps off
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
+
+"==============================================================================
+"GENERAL SETTINGS
+"==============================================================================
+
+"rebind <Leader> key
+let mapleader = ","
 
 "copy & paste
 set pastetoggle=<F2> "toggles paste mode using <F2>
@@ -31,9 +37,6 @@ set clipboard=unnamed "use the system clipboard
 "mouse and backspace
 set mouse=a  "on OSX press ALT and click
 set bs=2 "make backspace behave like normal again
-
-"rebind <Leader> key
-let mapleader = ","
 
 "bind nohl to remove highlight of your last search
 noremap <C-n> :nohl<CR>
@@ -66,32 +69,18 @@ vnoremap <Leader>s :sort<CR>
 "map white space function
 map <Leader>ws :StripWhitespace<CR>
 
-" Use ctrl+^ for capslock
-" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
-for c in range(char2nr('A'), char2nr('Z'))
-  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
-  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
-endfor
-
-" Kill the capslock when leaving insert mode.
-autocmd InsertLeave * set iminsert=0
-
 "colors
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
 colorscheme solarized
 
+"turn error beeps off
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 "folding for python files
 autocmd FileType python setlocal foldmethod=indent foldnestmax=2
-
-"spaces and tabs
-set tabstop=4 "number of visual spaces per tab
-set shiftwidth=4 "number of spaces to use for each step of (auto)indent
-set softtabstop=4 "number of spaces in tab when editing
-set expandtab "tabs are spaces
-set shiftround "round to nearest tab width when moving blocks of text
-set smartindent "automatically indent when starting a new line
 
 "ui config
 set number "show line numbers
@@ -114,7 +103,17 @@ set hidden
 "turn of word wrapping
 set nowrap
 
-"vim-airline settings
+"searching"
+set hlsearch "highlight matches
+set incsearch "search as characters are entered
+set ignorecase "ignore case on search
+set smartcase "override the ignore case setting when searching with uppercase
+
+
+"==============================================================================
+"VIM AIRLINE SETTINGS
+"==============================================================================
+
 "enable virtualenv integration with vim-airline
 "https://github.com/jmcantrell/vim-virtualenv.git
 let g:airline#extensions#virtualenv#enabled = 1
@@ -129,11 +128,50 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1 "show buffer index
 "let g:airline#extensions#tabline#formatter = 'unique_tail' "short buffer name in tabline, unless not unique
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-"searching"
-set hlsearch "highlight matches
-set incsearch "search as characters are entered
-set ignorecase "ignore case on search
-set smartcase "override the ignore case setting when searching with uppercase
+
+"==============================================================================
+"TAB SETTINGS
+"==============================================================================
+
+"general tab settings
+set expandtab "tabs are spaces
+set shiftround "round to nearest tab width when moving blocks of text
+set smartindent "automatically indent when starting a new line
+
+"python tab settings
+autocm Filetype python setlocal tabstop=4 "number of visual spaces per tab
+autocm Filetype python setlocal shiftwidth=4 "number of spaces to use for each step of (auto)indent
+autocm Filetype python setlocal softtabstop=4 "number of spaces in tab when editing
+
+"ruby tab settings
+autocm Filetype ruby setlocal tabstop=2 "number of visual spaces per tab
+autocm Filetype ruby setlocal shiftwidth=2 "number of spaces to use for each step of (auto)indent
+autocm Filetype ruby setlocal softtabstop=2 "number of spaces in tab when editing
+
+"javascript tab settings
+autocm Filetype javascript setlocal tabstop=4 "number of visual spaces per tab
+autocm Filetype javascript setlocal shiftwidth=4 "number of spaces to use for each step of (auto)indent
+autocm Filetype javascript setlocal softtabstop=4 "number of spaces in tab when editing
+
+"html tab settings
+autocm Filetype html setlocal tabstop=2 "number of visual spaces per tab
+autocm Filetype html setlocal shiftwidth=2 "number of spaces to use for each step of (auto)indent
+autocm Filetype html setlocal softtabstop=2 "number of spaces in tab when editing
+
+
+"==============================================================================
+"CAPSLOCK SETTINGS
+"==============================================================================
+
+" Use ctrl+^ for capslock
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+for c in range(char2nr('A'), char2nr('Z'))
+  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+
+" Kill the capslock when leaving insert mode.
+autocmd InsertLeave * set iminsert=0
 
 
 "==============================================================================

@@ -3,15 +3,16 @@
 "==============================================================================
 
 "PACKAGES INSTALLED
-" ctrlp.vim/
-" jedi-vim/
-" nerdtree/
-" vim-airline/
-" vim-better-whitespace/
-" vim-flake8/
-" vim-fugitive/
-" vim-ruby/
-" vim-virtualenv/
+" ctrlp.vim
+" emmet-vim
+" jedi-vim
+" nerdtree
+" vim-airline
+" vim-better-whitespace
+" vim-flake8
+" vim-fugitive
+" vim-ruby
+" vim-virtualenv
 
 
 "==============================================================================

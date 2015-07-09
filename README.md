@@ -1,8 +1,6 @@
 # Installation
 ###1. Clone repository and all submodules into .vim folder:
-```
-git clone --recursive --recurse-submodules https://github.com/salimhamed/dotvim.git ~/.vim
-```
+    git clone --recursive --recurse-submodules https://github.com/salimhamed/dotvim.git ~/.vim
 
 ###2. Create symlinks:
 **Unix:**

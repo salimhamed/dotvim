@@ -3,9 +3,11 @@
     git clone --recursive --recurse-submodules https://github.com/salimhamed/dotvim.git ~/.vim
 
 ###2. Create symlinks:
-**Unix:**
+Unix:
+
     ln -s ~/.vim/vimrc ~/.vimrc
-**Windows:**
+Windows:
+
     mklink "C:\\Users\\<user_profile>\\_vimrc" "C:\\Users\\<user_profile>\\vimfiles\\vimrc"
 
 ###3. Compile and Install YouCompleteMe:

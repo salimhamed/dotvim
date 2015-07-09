@@ -1,10 +1,10 @@
 # Installation
-###Clone repository and all submodules into .vim folder:
+###1. Clone repository and all submodules into .vim folder:
 ```
 git clone --recursive --recurse-submodules https://github.com/salimhamed/dotvim.git ~/.vim
 ```
 
-###Create symlinks:
+###2. Create symlinks:
 **Unix:**
 ```
 ln -s ~/.vim/vimrc ~/.vimrc
@@ -14,7 +14,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 mklink "C:\\Users\\<user_profile>\\_vimrc" "C:\\Users\\<user_profile>\\vimfiles\\vimrc"
 ```
 
-###Compile and Install YouCompleteMe:
+###3. Compile and Install YouCompleteMe:
 * [YouCompleteMe Installation Page](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
 
 # Vim Plugins Installed

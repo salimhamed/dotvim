@@ -14,5 +14,20 @@ ln -s ~/.vim/vimrc ~/.vimrc
 mklink "C:\\Users\\<user_profile>\\_vimrc" "C:\\Users\\<user_profile>\\vimfiles\\vimrc"
 ```
 
-# More Reading
+##Compile and Install YouCompleteMe:
+* [YouCompleteMe Installation Page](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
+
+# Vim Plugins Installed
+* [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+* [ctrlp.vim](https://github.com/kien/ctrlp.vim)/
+* [emmet-vim](https://github.com/mattn/emmet-vim)/
+* [nerdtree](https://github.com/scrooloose/nerdtree)/
+* [vim-airline](https://github.com/bling/vim-airline)/
+* [vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)/
+* [vim-flake8](https://github.com/nvie/vim-flake8)/
+* [vim-fugitive](https://github.com/tpope/vim-fugitive)/
+* [vim-ruby](https://github.com/vim-ruby/vim-ruby)/
+* [vim-virtualenv](https://github.com/jmcantrell/vim-virtualenv)/
+
+# Resources
 * [Vimcasts - Synchronizing Plugins with Git](www.vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen)

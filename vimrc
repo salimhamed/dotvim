@@ -5,7 +5,6 @@
 "PACKAGES INSTALLED
 " ctrlp.vim
 " emmet-vim
-" jedi-vim
 " nerdtree
 " vim-airline
 " vim-better-whitespace
@@ -27,6 +26,9 @@ Helptags
 "==============================================================================
 "GENERAL SETTINGS
 "==============================================================================
+
+"don't make settings compatable with vi
+set nocompatible
 
 "rebind <Leader> key
 let mapleader = ","
@@ -80,15 +82,16 @@ colorscheme solarized
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-"folding for python files
-autocmd FileType python setlocal foldmethod=indent foldnestmax=2
+"enable filetype detection
+filetype on
+filetype indent on
+filetype plugin on
 
 "ui config
 set number "show line numbers
 set ruler "show the line and column number of the cursor position
 set showcmd "show command in bottom bar
 set colorcolumn=80 "show column at 80 characters
-filetype indent on "load filetype-specific indent files
 set wildmenu "visual autocomplete for command menu
 set showmatch "highlight matching brackets and parentheses
 set title
@@ -109,6 +112,9 @@ set hlsearch "highlight matches
 set incsearch "search as characters are entered
 set ignorecase "ignore case on search
 set smartcase "override the ignore case setting when searching with uppercase
+
+"folding for python files
+autocmd FileType python setlocal foldmethod=indent foldnestmax=2
 
 
 "==============================================================================
@@ -159,6 +165,15 @@ autocm Filetype html setlocal tabstop=2 "number of visual spaces per tab
 autocm Filetype html setlocal shiftwidth=2 "number of spaces to use for each step of (auto)indent
 autocm Filetype html setlocal softtabstop=2 "number of spaces in tab when editing
 
+
+"==============================================================================
+"RUBY AUTOCOMPLETE SETTINGS
+"==============================================================================
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+imap <S-CR> <CR><CR>end<Esc>-cc
 
 "==============================================================================
 "CAPSLOCK SETTINGS

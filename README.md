@@ -23,6 +23,7 @@ mklink "C:\\Users\\<user_profile>\\_vimrc" "C:\\Users\\<user_profile>\\vimfiles\
 
 # Vim Plugins Installed
 * [ctrlp.vim](https://github.com/kien/ctrlp.vim)
+* [delimitMate](https://github.com/Raimondi/delimitMate)
 * [emmet-vim](https://github.com/mattn/emmet-vim)
 * [nerdtree](https://github.com/scrooloose/nerdtree)
 * [syntastic](https://github.com/scrooloose/syntastic)

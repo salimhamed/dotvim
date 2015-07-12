@@ -1,20 +1,4 @@
 "==============================================================================
-"GENERAL NOTES
-"==============================================================================
-
-"PACKAGES INSTALLED
-" ctrlp.vim
-" emmet-vim
-" nerdtree
-" vim-airline
-" vim-better-whitespace
-" vim-flake8
-" vim-fugitive
-" vim-ruby
-" vim-virtualenv
-
-
-"==============================================================================
 "INSTALL PATHOGEN
 "==============================================================================
 
@@ -175,6 +159,18 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 imap <S-CR> <CR><CR>end<Esc>-cc
 
+"==============================================================================
+"SYNTASTIC SETTINGS
+"==============================================================================
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 "==============================================================================
 "CAPSLOCK SETTINGS
 "==============================================================================

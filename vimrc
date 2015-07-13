@@ -1,18 +1,44 @@
 "==============================================================================
-"INSTALL PATHOGEN
+"SETUP VUNDLE
 "==============================================================================
 
-"enable pathogen (a plug-in that allows you to manage runtimepath)
-execute pathogen#infect()
-Helptags
+"don't try to make settings compatable with vi
+set nocompatible
+
+"turn off filetype detection (required)
+filetype off
+
+"set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+"let Vundle manage Vundle (required)
+Plugin 'gmarik/Vundle.vim'
+
+
+"==============================================================================
+"PLUGINS MANAGED BY VUNDLE
+"==============================================================================
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'jmcantrell/vim-virtualenv'
 
 
 "==============================================================================
 "GENERAL SETTINGS
 "==============================================================================
-
-"don't try to make settings compatable with vi
-set nocompatible
 
 "enable filetype detection
 filetype on

@@ -51,8 +51,6 @@ filetype plugin indent on " required
 
 "enable filetype detection
 filetype on
-filetype indent on
-filetype plugin on
 
 "rebind <Leader> key
 let mapleader = ","

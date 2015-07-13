@@ -5,8 +5,8 @@
 "don't try to make settings compatable with vi
 set nocompatible
 
-"turn off filetype detection (required)
-filetype off
+"turn off filetype detection
+filetype off "required
 
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -14,8 +14,8 @@ call vundle#begin()
 "alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-"let Vundle manage Vundle (required)
-Plugin 'gmarik/Vundle.vim'
+"let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim' "required
 
 
 "==============================================================================
@@ -23,7 +23,7 @@ Plugin 'gmarik/Vundle.vim'
 "==============================================================================
 
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'kien/ctrlp'
+Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
@@ -34,6 +34,15 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'jmcantrell/vim-virtualenv'
+
+
+"==============================================================================
+"END VUNDLE SETUP
+"==============================================================================
+
+" All of the Vundle managed plugins must be added before the following line
+call vundle#end() " required
+filetype plugin indent on " required
 
 
 "==============================================================================

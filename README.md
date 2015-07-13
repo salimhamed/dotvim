@@ -1,9 +1,9 @@
 # Installation
-####1. Clone repository and all submodules into .vim folder:
-    git clone --recursive --recurse-submodules https://github.com/salimhamed/dotvim.git ~/.vim
+####1. Clone repository into .vim directory:
+    git clone https://github.com/salimhamed/dotvim.git ~/.vim
 
-####2. Update and initalize all dependencies of submodules:
-    git submodule update --init --recursive
+####2. Clone Vundle into .vim/bundle/ directory:
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ####3. Create symlink to vimrc file:
 **Unix:**
@@ -13,7 +13,10 @@
 
     mklink "C:\\Users\\<user_profile>\\_vimrc" "C:\\Users\\<user_profile>\\vimfiles\\vimrc"
 
-####4. Compile and Install YouCompleteMe:
+####4. Install all plugins using Vundle:
+    vim +PluginInstall +qall
+
+####5. Compile and Install YouCompleteMe:
 * [YouCompleteMe Installation Page](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
 
 ###Install Syntax Checking Dependencies
@@ -33,7 +36,3 @@
 * [vim-ruby](https://github.com/vim-ruby/vim-ruby)
 * [vim-virtualenv](https://github.com/jmcantrell/vim-virtualenv)
 * [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-
-
-# Resources
-* [Vimcasts - Synchronizing Plugins with Git](http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/)

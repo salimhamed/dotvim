@@ -11,8 +11,13 @@ Helptags
 "GENERAL SETTINGS
 "==============================================================================
 
-"don't make settings compatable with vi
+"don't try to make settings compatable with vi
 set nocompatible
+
+"enable filetype detection
+filetype on
+filetype indent on
+filetype plugin on
 
 "rebind <Leader> key
 let mapleader = ","
@@ -56,6 +61,15 @@ vnoremap <Leader>s :sort<CR>
 "map white space function
 map <Leader>ws :StripWhitespace<CR>
 
+"global tab settings
+"file specific settings can be changed in the ftplugin directory
+set expandtab "tabs are spaces
+set shiftround "round to nearest tab width when moving blocks of text
+set smartindent "automatically indent when starting a new line
+set tabstop=4 "number of visual spaces per tab
+set shiftwidth=4 "number of spaces to use for each step of (auto)indent
+set softtabstop=4 "number of spaces in tab when editing
+
 "colors
 let g:solarized_termcolors=256
 syntax enable
@@ -65,11 +79,6 @@ colorscheme solarized
 "turn error beeps off
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-
-"enable filetype detection
-filetype on
-filetype indent on
-filetype plugin on
 
 "ui config
 set number "show line numbers
@@ -97,8 +106,20 @@ set incsearch "search as characters are entered
 set ignorecase "ignore case on search
 set smartcase "override the ignore case setting when searching with uppercase
 
-"folding for python files
-autocmd FileType python setlocal foldmethod=indent foldnestmax=2
+
+"==============================================================================
+"CAPSLOCK SETTINGS
+"==============================================================================
+
+" Use ctrl+^ for capslock
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+for c in range(char2nr('A'), char2nr('Z'))
+  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+
+" Kill the capslock when leaving insert mode.
+autocmd InsertLeave * set iminsert=0
 
 
 "==============================================================================
@@ -121,43 +142,13 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 
 "==============================================================================
-"TAB SETTINGS
-"==============================================================================
-
-"general tab settings
-set expandtab "tabs are spaces
-set shiftround "round to nearest tab width when moving blocks of text
-set smartindent "automatically indent when starting a new line
-
-"python tab settings
-autocm Filetype python setlocal tabstop=4 "number of visual spaces per tab
-autocm Filetype python setlocal shiftwidth=4 "number of spaces to use for each step of (auto)indent
-autocm Filetype python setlocal softtabstop=4 "number of spaces in tab when editing
-
-"ruby tab settings
-autocm Filetype ruby setlocal tabstop=2 "number of visual spaces per tab
-autocm Filetype ruby setlocal shiftwidth=2 "number of spaces to use for each step of (auto)indent
-autocm Filetype ruby setlocal softtabstop=2 "number of spaces in tab when editing
-
-"javascript tab settings
-autocm Filetype javascript setlocal tabstop=4 "number of visual spaces per tab
-autocm Filetype javascript setlocal shiftwidth=4 "number of spaces to use for each step of (auto)indent
-autocm Filetype javascript setlocal softtabstop=4 "number of spaces in tab when editing
-
-"html tab settings
-autocm Filetype html setlocal tabstop=2 "number of visual spaces per tab
-autocm Filetype html setlocal shiftwidth=2 "number of spaces to use for each step of (auto)indent
-autocm Filetype html setlocal softtabstop=2 "number of spaces in tab when editing
-
-
-"==============================================================================
-"RUBY AUTOCOMPLETE SETTINGS
+"AUTOCOMPLETE SETTINGS
 "==============================================================================
 
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-imap <S-CR> <CR><CR>end<Esc>-cc
+
 
 "==============================================================================
 "SYNTASTIC SETTINGS
@@ -171,19 +162,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"==============================================================================
-"CAPSLOCK SETTINGS
-"==============================================================================
 
-" Use ctrl+^ for capslock
-" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
-for c in range(char2nr('A'), char2nr('Z'))
-  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
-  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
-endfor
 
-" Kill the capslock when leaving insert mode.
-autocmd InsertLeave * set iminsert=0
+"==============================================================================
+"NERDTREE SETTINGS
+"==============================================================================
+" ,n to Display the file browser tree
+nmap <leader>n :NERDTreeToggle<CR>
+" ,p to show current file in the tree
+nmap <leader>p :NERDTreeFind<CR>
 
 
 "==============================================================================

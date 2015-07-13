@@ -19,7 +19,7 @@
 ####5. Compile and Install YouCompleteMe:
 * [YouCompleteMe Installation Page](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
 
-###Install Syntax Checking Dependencies
+####6. (Optional) Install Syntax and Autocomplete Packages
 * [ruby-lint](https://github.com/YorickPeterse/ruby-lint)
 * [flake8](https://flake8.readthedocs.org/en/2.3.0/)
 

@@ -9,10 +9,13 @@ set nocompatible
 filetype off "required
 
 "set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+if has('win32') || has ('win64')
+    set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+endif
+
 call vundle#begin()
-"alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 "let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim' "required
@@ -22,15 +25,20 @@ Plugin 'gmarik/Vundle.vim' "required
 "PLUGINS MANAGED BY VUNDLE
 "==============================================================================
 
+"colors
+Plugin 'chriskempson/base16-vim'
+Plugin 'altercation/vim-colors-solarized'
+
+"productivity
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'tpope/vim-endwise'
+"Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'jmcantrell/vim-virtualenv'
@@ -103,12 +111,6 @@ set tabstop=4 "number of visual spaces per tab
 set shiftwidth=4 "number of spaces to use for each step of (auto)indent
 set softtabstop=4 "number of spaces in tab when editing
 
-"colors
-let g:solarized_termcolors=256
-syntax enable
-set background=dark
-colorscheme solarized
-
 "turn error beeps off
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
@@ -133,12 +135,27 @@ set hidden
 "turn of word wrapping
 set nowrap
 
+"disable swap files
+set noswapfile
+
 "searching"
 set hlsearch "highlight matches
 set incsearch "search as characters are entered
 set ignorecase "ignore case on search
 set smartcase "override the ignore case setting when searching with uppercase
 
+
+"==============================================================================
+"CAPSLOCK SETTINGS
+"==============================================================================
+
+"let g:solarized_termcolors=256
+syntax enable
+set background=dark
+"set background=dark
+colorscheme base16-default
+"colorscheme solarized
+"colorscheme base16-atelierdune
 
 "==============================================================================
 "CAPSLOCK SETTINGS
@@ -193,7 +210,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 
@@ -229,7 +246,7 @@ endif
 "==============================================================================
 
 "Windows specific settings
-if has("win32")
+if has("win32") || has ('win64')
 
     "Better font for Windows
     set guifont=Consolas:h10:cANSI

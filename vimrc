@@ -26,7 +26,6 @@ Plugin 'gmarik/Vundle.vim' "required
 "==============================================================================
 
 "colors
-Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
 
 "productivity
@@ -36,9 +35,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
-"Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'jmcantrell/vim-virtualenv'
@@ -149,13 +149,10 @@ set smartcase "override the ignore case setting when searching with uppercase
 "CAPSLOCK SETTINGS
 "==============================================================================
 
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 syntax enable
 set background=dark
-"set background=dark
-colorscheme base16-default
-"colorscheme solarized
-"colorscheme base16-atelierdune
+colorscheme solarized
 
 "==============================================================================
 "CAPSLOCK SETTINGS

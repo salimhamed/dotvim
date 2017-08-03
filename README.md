@@ -1,11 +1,11 @@
 # Installation
-####1. Clone repository into .vim directory:
+#### 1. Clone repository into .vim directory:
     git clone https://github.com/salimhamed/dotvim.git ~/.vim
 
-####2. Clone Vundle into .vim/bundle/ directory:
+#### 2. Clone Vundle into .vim/bundle/ directory:
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-####3. Create symlink to vimrc file:
+#### 3. Create symlink to vimrc file:
 **Unix:**
 
     ln -s ~/.vim/vimrc ~/.vimrc
@@ -13,13 +13,13 @@
 
     mklink "C:\\Users\\<user_profile>\\_vimrc" "C:\\Users\\<user_profile>\\vimfiles\\vimrc"
 
-####4. Install all plugins using Vundle:
+#### 4. Install all plugins using Vundle:
     vim +PluginInstall +qall
 
-####5. Compile and Install YouCompleteMe:
+#### 5. Compile and Install YouCompleteMe:
 * [YouCompleteMe Installation Page](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
 
-####6. (Optional) Install Syntax and Autocomplete Packages
+#### 6. (Optional) Install Syntax and Autocomplete Packages
 * [ruby-lint](https://github.com/YorickPeterse/ruby-lint)
 * [flake8](https://flake8.readthedocs.org/en/2.3.0/)
 
